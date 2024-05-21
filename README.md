@@ -230,8 +230,11 @@ https://www.rochesterrealestateblog.com/what-factors-influence-the-sale-price-of
 Other Comments:
 
 •	Experiment with different ensemble methods, such as stacking or blending, to combine the predictions of multiple models for improved performance.
+
 •	Discuss the computational resources required to deploy the model, such as memory and processing power, and how to optimize them for efficiency.
+
 •	Considering the need for real-time predictions and designing a system architecture that can handle high throughput and low latency requirements.
+
 •	Acknowledging any collaborators or contributors who assisted with data collection, preprocessing, or model development.
 
 Code link: 
