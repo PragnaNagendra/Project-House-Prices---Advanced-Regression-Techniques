@@ -31,7 +31,7 @@ b)	Filled missing values for certain columns with constants (e.g., 0 for
  
 
 3)	Feature Engineering:
-As they are not contained in kaggle dataset I decided to create the following features  from other information:
+As they are not contained in the Kaggle dataset I decided to create the following features  from other information:
 
 1) "TotalSqrtFeet" - Total Live Area
 2) "TotalBaths" - Total Area for Bathrooms
@@ -39,11 +39,11 @@ As they are not contained in kaggle dataset I decided to create the following fe
 
 4)	Exploratory Data Analysis (EDA):
 
-Here, we conducted EDA to understand data distribution, identified outliers, and checked for correlations. The prediction target is 'SalePrice'.
+Here, we conducted EDA to understand data distribution, identified outliers and checked for correlations. The prediction target is 'SalePrice'.
  
-There are two outliers with prices more than 700000.
+There are two outliers with prices of more than 700000.
  
-(here, we notice that it is right-skewed distribution with the pick around 160k and quite long tail with maximum about 800k.)
+(here, we notice that it is a right-skewed distribution with the pick around 160k and a quite long tail with a maximum of about 800k.)
 
  
 
@@ -69,19 +69,19 @@ Here, we check if there are records that YearBuilt or GarageYrBlt have further y
 
 8)	LotFrontage feature:
 
-LotFrontage is a linear feet of street connected to property. It is a high probability that these values are similar to houses in the same Neighborhood.Here, we imput missing values for "LotFrontage" based on the median of similar properties in the same neighborhood.
+LotFrontage is a linear feet of street connected to the property. There is a high probability that these values are similar to houses in the same Neighborhood. Here, we input missing values for "LotFrontage" based on the median of similar properties in the same neighborhood.
  
  
 
 9)	Transformation of Numerical Variables:
 
-Here, we convert some numerical variables (e.g., "MSSubClass", "OverallCond") that are actually categorical into string format.
+Here, we convert some numerical variables (e.g., "MSSubClass", and "OverallCond") that are categorical into the string format.
  
 Model Selection:
 
 1)	Linear Regression:
 
-Here,we use this Baseline model using a robust scaler for stability.
+Here, we use this Baseline model using a robust scaler for stability.
  
  
  
@@ -96,7 +96,7 @@ Here, Gradient Boosting Regressor (GBR) is an ensemble technique that builds seq
  
 4)	XGBoost Regressor:
 
-XGBoost Regressor is highly efficient implementation of gradient boosting with    regularization.
+XGBoost Regressor is a highly efficient implementation of gradient boosting with    regularization.
  
 5)	ElasticNet:
 
@@ -106,12 +106,12 @@ ElasticNet combines L1 and L2 regularization to improve generalization and featu
 
 6)	LightGBM:
 
-LightGBM is a gradient boosting framework that is fast and efficient, particularly with large datasets.
+LightGBM is a gradient-boosting framework that is fast and efficient, particularly with large datasets.
  
 
 7)	Bagging Regressor:
 
-Bagging Regressor reduces variance by averaging predictions from multiple models trained on random subsets.
+The Bagging Regressor reduces variance by averaging predictions from multiple models trained on random subsets.
  
 8)	Stacking:
 
@@ -125,7 +125,7 @@ Divide the dataset into training and validation sets to evaluate model performan
  
 
 2)	Model Training:
-In model training we train each model on the training set, applying hyperparameter tuning using techniques like grid search where applicable.We utilize GridSearchCV to perform an exhaustive search over specified parameter values for the estimator, optimizing hyperparameters during training.
+In model training we train each model on the training set, applying hyperparameter tuning using techniques like grid search where applicable. We utilize GridSearchCV to perform an exhaustive search over specified parameter values for the estimator, optimizing hyperparameters during training.
 
 3)	Cross-Validation:
 
@@ -138,7 +138,7 @@ MODEL SUMMARY
 
 Model Architecture:
 
-Understanding the architecture helps in comprehending how the model captures patterns in the data and makes predictions.For this Project ,the types of models used, their components, and how they are interconnected :
+Understanding the architecture helps in comprehending how the model captures patterns in the data and makes predictions. For this Project, the types of models used, their components, and how they are interconnected :
 •	 Linear Regression: Basic linear model with RobustScaler for preprocessing.
 •	LASSO: Linear model with L1 regularization, optimized with LassoCV.
 •	GradientBoostingRegressor: Ensemble model using boosting with decision trees.
@@ -149,7 +149,7 @@ Understanding the architecture helps in comprehending how the model captures pat
 
 Hyperparameters:
 
-Proper selection and tuning of hyperparameters are essential for optimizing model performance and preventing overfitting or underfitting.For this Project,these are : 
+Proper selection and tuning of hyperparameters are essential for optimizing model performance and preventing overfitting or underfitting. For this Project, these are : 
 •	LASSO: alphas: Controls the strength of L1 regularization, crucial for feature selection.
 LASSO: alphas = [0.0004, 0.0005, 0.0006]
 •	GradientBoostingRegressor: n_estimators, max_depth, learning_rate: Number of boosting stages, maximum depth of trees, and learning rate for shrinkage.
@@ -163,9 +163,9 @@ LightGBM: num_leaves=5, learning_rate=0.05, n_estimators=800
 
 Training Performance:
 
-Understanding training performance helps in assessing how well the model fits the training data and provides insights into potential areas for improvement.For this Project:
+Understanding training performance helps in assessing how well the model fits the training data and provides insights into potential areas for improvement. For this Project:
 
-The metrics RMSE (Root Mean Squared Error) is used to evaluate model accuracy.
+The metric RMSE (Root Mean Squared Error) is used to evaluate model accuracy.
 Performance Results:
 •	Linear Regression: RMSE = 0.160
 •	LASSO: RMSE = 0.135
@@ -180,13 +180,13 @@ RESULTS
 Running Predictions:
 
 •	This section demonstrates the process of making predictions using the trained models on the test dataset.
-•	It includes code to generate predictions using each individual model (en_model, lasso_model, lgb_model) as well as the stacked model (stack_model).
+•	It includes code to generate predictions using each model (en_model, lasso_model, lgb_model) as well as the stacked model (stack_model).
 •	A weighted average of the predictions from different models is calculated to generate the final predictions (stack_preds).
 •	The predictions are then formatted into a DataFrame (predictions_df) with appropriate column names and index values.
  
  
 Here,
-Further we save the predictions to a CSV file (my_predictions.csv) for submission which gives us the sample_submission.csv .It includes code to export the predictions DataFrame to a CSV file with the required format for submission, including the appropriate headers and index labels like:
+Further, we save the predictions to a CSV file (my_predictions.csv) for submission which gives us the my_predictions.csv.It includes code to export the predictions DataFrame to a CSV file with the required format for submission, including the appropriate headers and index labels like:
  
 ---------------------------------------------------------------------------------------------------------------------------
 INFERENCES:
@@ -226,8 +226,8 @@ https://www.rochesterrealestateblog.com/what-factors-influence-the-sale-price-of
 ---------------------------------------------------------------------------------------------------------------------------
 Other Comments:
 
-•	Experimenting with different ensemble methods, such as stacking or blending, to combine the predictions of multiple models for improved performance.
-•	Discussing the computational resources required to deploy the model, such as memory and processing power, and how to optimize them for efficiency.
+•	Experiment with different ensemble methods, such as stacking or blending, to combine the predictions of multiple models for improved performance.
+•	Discuss the computational resources required to deploy the model, such as memory and processing power, and how to optimize them for efficiency.
 •	Considering the need for real-time predictions and designing a system architecture that can handle high throughput and low latency requirements.
 •	Acknowledging any collaborators or contributors who assisted with data collection, preprocessing, or model development.
 
