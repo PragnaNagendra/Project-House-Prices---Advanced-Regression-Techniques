@@ -180,8 +180,11 @@ RESULTS
 Running Predictions:
 
 •	This section demonstrates the process of making predictions using the trained models on the test dataset.
+
 •	It includes code to generate predictions using each model (en_model, lasso_model, lgb_model) as well as the stacked model (stack_model).
+
 •	A weighted average of the predictions from different models is calculated to generate the final predictions (stack_preds).
+
 •	The predictions are then formatted into a DataFrame (predictions_df) with appropriate column names and index values.
  
  
