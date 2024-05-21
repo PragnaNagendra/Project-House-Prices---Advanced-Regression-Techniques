@@ -13,6 +13,7 @@ The dataset is sourced from the Kaggle competition "House Prices: Advanced Regre
 
 Importance:
 Accurate prediction of house prices holds immense significance for multiple stakeholders within the real estate ecosystem. For prospective buyers, reliable price estimates enable informed decision-making, helping them assess affordability and negotiate favorable deals. Similarly, sellers can benefit from accurate pricing strategies to optimize their returns and minimize time on the market.
+
 ---------------------------------------------------------------------------------------------------------------------------
 Approach to solving the problem:
 
@@ -139,25 +140,37 @@ MODEL SUMMARY
 Model Architecture:
 
 Understanding the architecture helps in comprehending how the model captures patterns in the data and makes predictions. For this Project, the types of models used, their components, and how they are interconnected :
+
 •	 Linear Regression: Basic linear model with RobustScaler for preprocessing.
+
 •	LASSO: Linear model with L1 regularization, optimized with LassoCV.
+
 •	GradientBoostingRegressor: Ensemble model using boosting with decision trees.
+
 •	XGBRegressor: Extreme Gradient Boosting model with tree-based learning.
+
 •	ElasticNet: Linear model combining L1 and L2 regularization, optimized with ElasticNetCV.
+
 •	LightGBM: Gradient boosting framework with tree-based learning.
+
 •	Stacking Regressor: Ensemble model combining predictions from multiple models (Lasso, ElasticNet, XGBoost, LightGBM) using a meta-regressor.
 
 Hyperparameters:
 
 Proper selection and tuning of hyperparameters are essential for optimizing model performance and preventing overfitting or underfitting. For this Project, these are : 
+
 •	LASSO: alphas: Controls the strength of L1 regularization, crucial for feature selection.
 LASSO: alphas = [0.0004, 0.0005, 0.0006]
+
 •	GradientBoostingRegressor: n_estimators, max_depth, learning_rate: Number of boosting stages, maximum depth of trees, and learning rate for shrinkage.
 GradientBoostingRegressor: n_estimators=2500, max_depth=5, learning_rate=0.05
+
 •	XGBRegressor: n_estimators, max_depth, learning_rate: Similar parameters to GradientBoostingRegressor, tailored for XGBoost's implementation.
 XGBRegressor: n_estimators=2000, max_depth=3, learning_rate=0.05
+
 •	ElasticNet: alphas, l1_ratio: Combination of L1 and L2 regularization strengths.
 ElasticNet: alphas=[0.0001, 0.0003, 0.0004, 0.0006], l1_ratio=[0.9, 0.92]
+
 •	LightGBM: num_leaves, learning_rate, n_estimators: Maximum number of leaves per tree, learning rate, and number of boosting iterations.
 LightGBM: num_leaves=5, learning_rate=0.05, n_estimators=800
 
@@ -167,13 +180,21 @@ Understanding training performance helps in assessing how well the model fits th
 
 The metric RMSE (Root Mean Squared Error) is used to evaluate model accuracy.
 Performance Results:
+
 •	Linear Regression: RMSE = 0.160
+
 •	LASSO: RMSE = 0.135
+
 •	GradientBoostingRegressor: RMSE = 0.118
+
 •	XGBRegressor: RMSE = 0.119
+
 •	ElasticNet: RMSE = 0.115
+
 •	LightGBM: RMSE = 0.123
+
 •	BaggingRegressor: RMSE = 0.172
+
 ---------------------------------------------------------------------------------------------------------------------------
 RESULTS
 
@@ -209,6 +230,7 @@ Limitations of the model may include potential biases in the dataset, such as un
 4)	Future Directions:
 
 Future research could focus on improving data quality by collecting more detailed information on property attributes and market trends. Additionally, exploring advanced modeling techniques such as deep learning or ensemble methods could help improve predictive accuracy. Incorporating external data sources such as economic indicators or demographic trends may also enhance the model's performance and provide more robust insights into housing market dynamics.
+
 ---------------------------------------------------------------------------------------------------------------------------
 
 REFERENCES:
